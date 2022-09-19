@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<style>
+#myProgress {
+  position: relative;
+  width: 30%;
+  height: 30px;
+  background-color: #ddd;
+}
+
+#myBar {
+  position: absolute;
+  width: 1%;
+  height: 100%;
+  background-color: #4CAF50;
+}
+
+#label {
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}
+</style>
+<body onload="move()">
+
+
+
+<div id="myProgress">
+  <div id="myBar">
+    <div id="label">1%</div>
+  </div>
+</div>
+
+<br>
+
+
+<script>
+function move() {
+  var elem = document.getElementById("myBar");   
+  var width = 1;
+  var id = setInterval(frame, 500);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+      document.getElementById("label").innerHTML = width * 1  + '%';
+    }
+  }
+}
+</script>
+
+</body>
+</html>
